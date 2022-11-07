@@ -10,6 +10,7 @@ import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/scheduleFlight")
 public class ScheduleFlightController {
@@ -36,11 +37,11 @@ private final ScheduleFlightService scheduleFlightService;
 
 
 
-    @PutMapping("/update")
+    @PutMapping("/update/{scheduleFlightId}")
     @ResponseStatus(code = HttpStatus.OK)
-    public ScheduleFlight UpdateScheduleFlight(ScheduleFlight scheduleFlight){
+    public ScheduleFlight UpdateScheduleFlight( @RequestBody ScheduleFlight scheduleFlight,@PathVariable Long scheduleFlightId){
 
-       return  scheduleFlightService.UpdateScheduleFlight(scheduleFlight);
+       return  scheduleFlightService.UpdateScheduleFlight(scheduleFlight,scheduleFlightId);
     }
 
     @DeleteMapping("/delete/{scheduleFlightId}")
@@ -49,9 +50,9 @@ private final ScheduleFlightService scheduleFlightService;
        scheduleFlightService.DeleteById(scheduleFlightId);
     }
 
-    @PostMapping("/add/{id}")
+    @PostMapping("/add/{scheduleFlightId}")
     @ResponseStatus(code = HttpStatus.CREATED)
-    public ScheduleFlight create(@RequestBody ScheduleFlight scheduleFlight,@PathVariable("id") Long scheduleFlightId) {
+    public ScheduleFlight create(@RequestBody ScheduleFlight scheduleFlight,@PathVariable Long scheduleFlightId) {
         return scheduleFlightService.create(scheduleFlight, scheduleFlightId);
 
     }

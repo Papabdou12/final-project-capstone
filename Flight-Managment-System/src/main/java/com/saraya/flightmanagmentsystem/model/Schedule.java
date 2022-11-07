@@ -6,6 +6,7 @@ import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.datatype.jsr310.deser.LocalDateDeserializer;
 import com.fasterxml.jackson.datatype.jsr310.ser.LocalDateSerializer;
+import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
@@ -26,13 +27,12 @@ public class Schedule {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "schedule_id", nullable = false)
     private Long scheduleId;
-//    @JsonDeserialize(using = LocalDateDeserializer.class)
-//    @JsonSerialize(using = LocalDateSerializer.class)
+
     private LocalDateTime deptDateTime;
-//    @JsonDeserialize(using = LocalDateDeserializer.class)
-//    @JsonSerialize(using = LocalDateSerializer.class)
+
+
     private LocalDateTime arrDateTime;
-    @ManyToOne(targetEntity = Airport.class,cascade = CascadeType.ALL)
+    @ManyToOne(targetEntity = Airport.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     private Airport Airport;
 
 

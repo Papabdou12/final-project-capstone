@@ -5,6 +5,8 @@ import lombok.*;
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @AllArgsConstructor
@@ -20,11 +22,23 @@ public class Users {
     @Column(name = "user_id", nullable = false)
     private Long  userId;
     private String username;
-    private String  userPassword;
+    private String password;
     private Integer userPhone;
     private String userEmail;
-    @ManyToMany(fetch = FetchType.EAGER,cascade = CascadeType.ALL)
-    private Collection<Role> roles = new ArrayList<>();
+//    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
+//    @ToString.Exclude
+//    private Collection<Role> roles = new ArrayList<>();
+//
+    @ManyToMany(fetch = FetchType.LAZY)
+    @ToString.Exclude
+    private Set<Role> roles = new HashSet<>();
+
+    public Users(String username, String userEmail, String password) {
+        this.username = username;
+        this.userEmail = userEmail;
+        this.password = password;
+    }
+
 
 
 

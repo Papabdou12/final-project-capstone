@@ -10,6 +10,6 @@ import java.util.List;
 
 @Repository
 public interface AirportRepository extends CrudRepository<Airport, Long> {
- Airport findBySrcAirport(String srcAirport);
-    Airport findByDstAirport(String DstAirport);
+// Airport findBySrcAirport(String srcAirport);
+//    Airport findByDstAirport(String DstAirport);
 }

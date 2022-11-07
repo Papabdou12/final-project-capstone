@@ -9,7 +9,7 @@ public class UsersDto implements Serializable {
     private  Long userId;
     private  String usersType;
     private  String userName;
-    private  String userPassword;
+    private  String password;
     private  Integer userPhone;
     private  String userEmail;
 }

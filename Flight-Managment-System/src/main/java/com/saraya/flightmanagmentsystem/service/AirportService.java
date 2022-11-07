@@ -43,19 +43,13 @@ public class AirportService  {
         return mapper.map(airport,AirportDto.class);
     }
 
-    public Airport updateAirport(AirportDto airportDto){
+    public Airport updateAirport(Airport airport){
 
-        return repo.save(mapper.map(airportDto, Airport.class));
+        return repo.save(mapper.map(airport, Airport.class));
     }
 
     public void  DeleteById(Long airportId){
         repo.deleteById(airportId);
     }
 
-    public Airport findSrcAirport(String srcAirport){
-        return repo.findBySrcAirport(srcAirport);
-    }
-    public Airport findDstAirport(String dstAirport){
-        return repo.findByDstAirport(dstAirport);
-    }
 }

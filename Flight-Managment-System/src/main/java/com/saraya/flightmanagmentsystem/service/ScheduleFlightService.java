@@ -44,9 +44,17 @@ public class ScheduleFlightService  {
         return  repo.findById(scheduleFlightId);
     }
 
-    public ScheduleFlight UpdateScheduleFlight(ScheduleFlight Dto){
-        ScheduleFlight scheduleFlight = mapper.map(Dto,ScheduleFlight.class);
-       return repo.save(scheduleFlight);
+    public ScheduleFlight UpdateScheduleFlight(ScheduleFlight scheduleFlight,Long scheduleFlightId){
+        ScheduleFlightDto scheduleFlightDto = mapper.map(scheduleFlight,ScheduleFlightDto.class);
+        ScheduleFlight save = repo.findById(scheduleFlightId).get();
+        Schedule updateSchedule = scheduleRepository.findById(scheduleFlight.getSchedule().getScheduleId()).get();
+        save.setAvailableSeats(scheduleFlight.getAvailableSeats());
+        updateSchedule.setArrDateTime(scheduleFlight.getSchedule().getArrDateTime());
+        updateSchedule.setDeptDateTime(scheduleFlight.getSchedule().getDeptDateTime());
+        updateSchedule.setAirport(scheduleFlight.getSchedule().getAirport());
+//        save.setSchedule(scheduleFlight.getSchedule());
+        save.setFlight(scheduleFlight.getFlight());
+       return repo.save(save);
     }
 
     public void  DeleteById(Long scheduleFlightId){
@@ -54,8 +62,6 @@ public class ScheduleFlightService  {
     }
 
     public ScheduleFlight create(ScheduleFlight scheduleFlight, Long scheduleFlightId) {
-
-   //  ScheduleFlight scheduleFlight= new ScheduleFlight() ;
 
         Optional<Flight> flight = flightRepository.findById(scheduleFlightId);
         scheduleFlight.setFlight(flight.get());

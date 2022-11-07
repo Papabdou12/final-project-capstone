@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/flight")
 public class FlightController {
@@ -25,8 +26,8 @@ public class FlightController {
         return  service.getAll();
     }
 
-    @GetMapping("/viewById")
-    public Optional<Flight> getById(Long flightId){
+    @GetMapping("/viewById/{flightId}")
+    public Optional<Flight> getById(@PathVariable Long flightId){
 
         return  service.getById(flightId);
     }
@@ -37,7 +38,7 @@ public class FlightController {
     }
 
     @PutMapping("/update")
-    public Flight updateFlight(Flight flight){
+    public Flight updateFlight(@RequestBody Flight flight){
         return service.updateFlight(flight);
     }
 

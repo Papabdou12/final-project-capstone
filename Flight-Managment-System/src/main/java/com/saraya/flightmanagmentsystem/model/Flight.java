@@ -1,6 +1,7 @@
 package com.saraya.flightmanagmentsystem.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
 import javax.persistence.*;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 @Getter
 @ToString
 @Table(name = "flight")
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Flight {
 
     @Id

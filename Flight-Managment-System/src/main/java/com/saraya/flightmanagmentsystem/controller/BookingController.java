@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Optional;
 
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
 @RequestMapping("/booking")
 public class BookingController {
@@ -26,30 +27,36 @@ public class BookingController {
     }
 
     @GetMapping("/viewAll")
-    public ResponseEntity<Iterable<Booking>> getAll(){
+    public ResponseEntity<Iterable<Booking>>  getBookingsList(){
         Iterable<Booking> bookings = service.getAll();
         return new ResponseEntity<>(bookings, HttpStatus.OK);
     }
 
     @GetMapping("/viewById/{bookingId}")
-    public ResponseEntity<Optional<Booking>> getById(@PathVariable Long bookingId){
+    public ResponseEntity<Optional<Booking>> getBooking(@PathVariable Long bookingId){
         Optional<Booking> booking= service.getById(bookingId);
+
         return  new ResponseEntity<>(booking,HttpStatus.OK);
     }
-@PostMapping("/add/{bookingId}")
-    public  ResponseEntity<Booking> createBooking(@RequestBody Booking booking, @PathVariable Long bookingId) {
-    Booking b = service.create(booking,bookingId);
+    @PostMapping("/add")
+    public  ResponseEntity<Booking> createBooking(@RequestBody Booking booking) {
+        Booking b = service.create(booking);
         return new ResponseEntity<>(b,HttpStatus.CREATED);
     }
-    @PostMapping("/add/booking/toPassenger")
-    public ResponseEntity<?> addRoleToUser(@RequestBody BookingToPassengerForm form){
-        service.addRoleToUser(form.getBookingId(), form.getPassengerId());
-        return  ResponseEntity.ok().build();
-    }
-    @PutMapping("/update")
-    public  ResponseEntity<Booking> updateBooking(@RequestBody BookingDto bookingDto) {
-        Booking booking = service.updateBooking(bookingDto);
-        return new ResponseEntity<>(booking, HttpStatus.OK);
+//@PostMapping("/add/{bookingId}")
+//    public  ResponseEntity<Booking> createBooking(@RequestBody Booking booking, @PathVariable Long bookingId) {
+//    Booking b = service.create(booking,bookingId);
+//        return new ResponseEntity<>(b,HttpStatus.CREATED);
+//    }
+//    @PostMapping("/add/booking/toPassenger")
+//    public ResponseEntity<?> addRoleToUser(@RequestBody BookingToPassengerForm form){
+//        service.addRoleToUser(form.getBookingId(), form.getPassengerId());
+//        return  ResponseEntity.ok().build();
+//    }
+    @PutMapping("/update/{bookingId}")
+    public  ResponseEntity<Booking> updateBooking(@RequestBody Booking booking, @PathVariable Long bookingId) {
+        booking = service.updateBooking(bookingId, booking);
+        return new ResponseEntity<Booking>(booking, HttpStatus.OK);
     }
 @DeleteMapping("/delete/{bookingId}")
     public ResponseEntity<?>DeleteById(@PathVariable Long bookingId){
@@ -59,8 +66,8 @@ public class BookingController {
 
 }
 
-@Data
-class BookingToPassengerForm{
-    private Long bookingId;
-    private Long passengerId;
-}
+//@Data
+//class BookingToPassengerForm{
+//    private Long bookingId;
+//    private Long passengerId;
+//}

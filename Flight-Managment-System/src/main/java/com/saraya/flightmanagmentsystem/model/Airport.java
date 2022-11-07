@@ -23,8 +23,8 @@ public class Airport {
     private String airportCode;
     private String airportLocation;
     private String airportName;
-    private String srcAirport;
-    private String dstAirport;
+//    private String srcAirport;
+//    private String dstAirport;
 
 
 }

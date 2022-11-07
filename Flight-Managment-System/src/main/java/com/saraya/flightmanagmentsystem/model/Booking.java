@@ -1,10 +1,13 @@
 package com.saraya.flightmanagmentsystem.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.sun.istack.NotNull;
 import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Entity
@@ -14,6 +17,7 @@ import java.util.List;
 @Getter
 @ToString
 @Table(name = "booking")
+//@JsonIgnoreProperties(ignoreUnknown = true)
 public class Booking {
 
     @Id
@@ -21,17 +25,19 @@ public class Booking {
     @Column(name = "booking_id", nullable = false)
     private  Long bookingId;
     private LocalDate bookingDate;
-    @OneToOne ( cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @ToString.Exclude
-    @NotNull
-    @JoinColumn(name = "flight_booking_id")
-    private Flight flights;
-    @NotNull
-    @OneToMany(orphanRemoval = true,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    @ToString.Exclude
-    private List<Passenger> PassengerList;
-
     private int noOfPassenger;
+//    @OneToOne ( cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @ToString.Exclude
+//    @JoinColumn(name = "flight_booking_id")
+//    @JsonIgnore
+//    private Flight flights;
+//    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+//    @ToString.Exclude
+//    @JsonIgnore
+//    @JoinColumn(name = "passenger_booking_id")
+//    private List<Passenger> PassengerList = new ArrayList<>();
+
+
     private Double ticketCost;
 
 

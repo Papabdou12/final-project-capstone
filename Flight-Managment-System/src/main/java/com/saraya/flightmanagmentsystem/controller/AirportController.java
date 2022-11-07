@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Optional;
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/airport")
 public class AirportController {
@@ -36,9 +37,9 @@ public class AirportController {
         return service.create(airport);
     }
 
-    @PutMapping("/updateAirport/")
-    public Airport modifyAirport(@RequestBody AirportDto airportDto) {
-       return  service.updateAirport(airportDto);
+    @PutMapping("/update")
+    public Airport modifyAirport(@RequestBody Airport airport) {
+       return  service.updateAirport(airport);
     }
 
     @DeleteMapping("/deleteAirport/{id}")
@@ -46,12 +47,12 @@ public class AirportController {
         service.DeleteById(airportId);
     }
 
-    @GetMapping("/viewBySrcAirport/{srcAirport}")
-    Airport findBySrcAirport(@PathVariable String srcAirport){
-        return service.findSrcAirport(srcAirport);
-    }
-    @GetMapping("/viewByDstAirport/{dstAirport}")
-    Airport findByDstAirport(@PathVariable String dstAirport){
-        return service.findDstAirport(dstAirport);
-    }
+//    @GetMapping("/viewBySrcAirport/{srcAirport}")
+//    Airport findBySrcAirport(@PathVariable String srcAirport){
+//        return service.findSrcAirport(srcAirport);
+//    }
+//    @GetMapping("/viewByDstAirport/{dstAirport}")
+//    Airport findByDstAirport(@PathVariable String dstAirport){
+//        return service.findDstAirport(dstAirport);
+//    }
 }

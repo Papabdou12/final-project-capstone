@@ -1,6 +1,7 @@
 package com.saraya.flightmanagmentsystem.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.sun.istack.NotNull;
 import lombok.*;
 import org.hibernate.Hibernate;
@@ -24,12 +25,13 @@ public class ScheduleFlight {
     @ToString.Exclude
     @NotNull
      @JoinColumn(name = "fk_flight_id")
+    @JsonIgnore
     private Flight flight;
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 
     @ToString.Exclude
     @NotNull
-    //  @JoinColumn(name = "sk_schedule_id")
+    @JoinColumn(name = "sk_schedule_id")
     private Schedule schedule;
 
 

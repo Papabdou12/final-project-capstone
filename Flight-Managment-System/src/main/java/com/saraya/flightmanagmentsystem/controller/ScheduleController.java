@@ -1,29 +1,28 @@
 package com.saraya.flightmanagmentsystem.controller;
 
-import com.saraya.flightmanagmentsystem.model.Airport;
 import com.saraya.flightmanagmentsystem.model.Schedule;
-import com.saraya.flightmanagmentsystem.model.ScheduleDto;
 import com.saraya.flightmanagmentsystem.service.ScheduleService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.repository.query.Param;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
-import java.lang.reflect.Type;
 import java.util.List;
-import java.util.Optional;
 
 
+@CrossOrigin("http://localhost:4200")
 @RestController
 @RequestMapping("/schedule")
 public class ScheduleController {
     @Autowired
     private final ScheduleService service;
-    private ModelMapper mapper;
 
-    public ScheduleController(ScheduleService service) {
+    @Autowired
+    private  ModelMapper mapper;
+
+    public ScheduleController(ScheduleService service, ModelMapper mapper) {
         this.service = service;
+        this.mapper = mapper;
     }
     @GetMapping("/viewAll")
     public List<Schedule> getAll(){

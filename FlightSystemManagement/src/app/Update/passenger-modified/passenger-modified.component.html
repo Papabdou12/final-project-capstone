@@ -1,0 +1,31 @@
+
+<h3 style="text-align: center;">Add a Airport</h3>
+<div  style="width: 400px; margin-left: auto;margin-right: auto;">
+ <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label for="name">Passenger Id</label>
+        <input [disabled]="true" type="text" class="form-control" id="passengerId" required [(ngModel)]="passenger.passengerId" name="passengerId">
+      </div>
+    <div class="form-group">
+        <label for="name">Passenger Name</label>
+        <input  type="text" class="form-control" id="passengerName" required [(ngModel)]="passenger.passengerName" name="passengerName">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">>Passenger Age</label>
+        <input type="text" class="form-control" id="passengerAge" required [(ngModel)]="passenger.passengerAge" name="passengerAge">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Passenger CNI</label>
+        <input type="text" class="form-control" id="passengerUIN" required [(ngModel)]="passenger.passengerUIN" name="passengerUIN">
+      </div>
+
+      <div class="form-group">
+        <label for="name">Luggage</label>
+        <input type="text" class="form-control" id="luggage" required [(ngModel)]="passenger.luggage" name="luggage">
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+  </form>
+</div>
+

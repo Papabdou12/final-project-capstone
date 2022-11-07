@@ -1,0 +1,33 @@
+<h3 style="text-align: center;">update Flight</h3>
+<div  style="width: 400px; margin-left: auto;margin-right: auto;">
+    <form (ngSubmit)="onSubmit()">
+        <div class="form-group">
+            <label for="name">Flight Number</label>
+            <input [disabled]="true" type="text" class="form-control" id="flightNo" required [(ngModel)]="flight.flightId" name="flightNo">
+          </div>
+      <div class="form-group">
+        <label for="name">Carrier Name</label>
+        <input type="text" class="form-control" id="carrierName" required [(ngModel)]="flight.carrierName" name="carrierName">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Flight Model</label>
+        <input type="text" class="form-control" id="flightModel" required [(ngModel)]="flight.flightModel" name="flightModel">
+      </div>
+  
+      <div class="form-group">
+        <label for="name">Seat capacity</label>
+        <input type="number" class="form-control" id="seatCapacity" required [(ngModel)]="flight.seatCapacity" name="seatCapacity">
+      </div>
+      <div class="form-group">
+        <label for="name">From</label>
+        <input type="text" class="form-control" id="from" required [(ngModel)]="flight.from" name="from">
+      </div>
+      <div class="form-group">
+        <label for="name">To</label>
+        <input type="text" class="form-control" id="to" required [(ngModel)]="flight.to" name="to">
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+</div>
+

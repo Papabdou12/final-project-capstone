@@ -1,0 +1,58 @@
+
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid position-relative nav-bar p-0">
+      <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
+          <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
+              <a href="" class="navbar-brand">
+                  <h1 class="m-0 text-primary">SARA<span class="text-dark">YA-TRAV</span>ELER</h1>
+              </a>
+              <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+              
+              </button>
+              <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                  <div class="navbar-nav ml-auto py-0">
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a routerLink="/add-airport" class="nav-item nav-link">Add Airport</a>
+                    <a routerLink="/add-flight" class="nav-item nav-link">Add Flight</a>
+                    <a routerLink="/add-booking/:bookingId" class="nav-item nav-link">Add Booking</a>
+                    <a routerLink="/add-scheduleF-flight" class="nav-item nav-link">Add ScheduleFlight</a>
+                    
+                      <a href="about.html" class="nav-item nav-link" >About Us</a>
+                      <a href="" class="nav-item nav-link">Login </a>
+                      <a href="" class="nav-item nav-link" >Sign-Up </a>
+                  </div>
+              </div>
+          </nav>
+      </div>
+  </div >
+  <!-- Navbar End -->
+  <div class="container" style="margin: 5%;" >
+    
+<div  [hidden]="submitted" style="width: 500px; margin-left: auto;margin-right: auto;"> 
+  <form (ngSubmit)="onSubmit()" class="mb-3 row">
+    <div class="form-group">
+      <label for="name" class="col-sm col-form-label">Airport Code:</label>
+      <input type="text"  class="form-control" placeholder="Airport Code" required #airportCode="ngModel" pattern="^[A-Z]{1,5}$" [class.is-invalid]="airportCode.invalid && airportCode.touched" class="form-control" id="airportCode" required [(ngModel)]="airport.airportCode" name="airportCode">
+      <small class="text-danger" [class.d-none]="airportCode.valid || airportCode.untouched">Code should contain max 5 letters</small>
+    </div>
+
+    <div class="form-group">
+      <label for="name" class="col-sm col-form-label">Airport Name:</label>
+      <input type="text" placeholder="Airport Name" class="form-control" required #airportName="ngModel" [class.is-invalid]="airportName.invalid && airportName.touched" class="form-control" id="airportName" required [(ngModel)]="airport.airportName" name="airportName">
+      <small class="text-danger" [class.d-none]="airportName.valid || airportName.untouched">Name is required</small>
+    </div>
+
+    <div class="form-group">
+      <label for="name" class="col-sm col-form-label">Airport Location:</label>
+      <input type="text" class="form-control" placeholder="Airport Location" required #airportLocation="ngModel" [class.is-invalid]="airportLocation.invalid && airportLocation.touched" class="form-control" id="airportLocation" required [(ngModel)]="airport.airportLocation" name="airportLocation">
+      <small class="text-danger" [class.d-none]="airportLocation.valid || airportLocation.untouched">Location is required</small>
+    </div>
+
+    <div>
+      <button type="submit" class="btn btn-success " >Submit</button>
+    </div>  
+  </form>
+ </div> 
+  </div>

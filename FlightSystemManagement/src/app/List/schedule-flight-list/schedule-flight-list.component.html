@@ -1,6 +1,47 @@
+<!-- 
+  
+    <div class="panel panel-primary" style="margin: 10%;">
+      <div class="panel-heading">
+        <h2>List of Schedule Flight</h2>
+      </div>
+      <div style="margin-left: 80%;">
+        <button type="button" class="btn btn-lg btn-outline-info" routerLink="/add-schedule-flight/:scheduleFlightId">Ad ScheduleFlight</button>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+               <th>ScheduleFlight Id</th>
+                <th>Available Seats</th>
+                  <th> Flight ID </th>
+               <th>Schedule ID</th> 
+               <th>Airport ID</th>
+                  <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sf of scheduleFlights">
 
-    <!-- Navbar Start -->
-    <div class="container-fluid position-relative nav-bar p-0">
+              <td>{{sf.scheduleFlightId}}</td>
+              <td>{{sf.availableSeats}}</td>
+              <td>{{sf.flight.flightId}}</td>
+              <td>{{sf.schedule.scheduleId}}</td>
+              <td>{{sf.schedule.airport.airportId}}</td>
+
+              <td>
+                <button (click)="remove(sf.scheduleFlightId)" class="btn btn-danger">Delete</button>
+          <button (click)="modifySchedule(sf.scheduleId)"  class="btn btn-info" style="margin-left: 10px">update</button> 
+                  <button (click)="viewScheduleFlight(sf.scheduleFlightId)"  class="btn btn-info" style="margin-left: 10px">Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <app-footer></app-footer> -->
+      <!-- Navbar Start -->
+      <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
             <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
                 <a href="" class="navbar-brand">
@@ -27,56 +68,44 @@
     </div >
     <!-- Navbar End -->
   
-  <div class="panel panel-primary" style="margin: 10%;">
+  <div class="panel panel-primary" style="margin: 5%;">
       <div class="panel-heading">
-        <h2>List of Flight</h2>
+        <h2>Schedule Flight List</h2>
+      </div>
+      <div style="margin-left: 80%;">
+        <button type="button" class="btn btn-lg btn-outline-info" routerLink="/add-schedule-flight">Ad ScheduleFlight </button>
       </div>
       <div class="panel-body">
         <table class="table table-striped">
+          
           <thead>
             <tr>
-                <th>Schedule Flight Number</th>
-                 
-                 <th>Available Seats</th>
-                 <th>Flight Number</th>
-                 <th>Carrier Name</th>
-               <th>Flight Model</th>
-                 <th>SeatCapicity</th>
-               <th>From</th>
-               <th>To</th>
-               <th>Schedule Id</th>
-                <th>Departure Time</th>
-                <th>Arrival Time</th>
-                  <th>ID Airport</th>
-               <th>Code Airport</th>
-                 <th>Airport Location</th>
-                 <th>Airport Name</th> 
-                  <th>Action</th>
+              <th>ScheduleFlight Id</th>
+              <th>Available Seats</th>
+              <th>Flight ID</th>
+              <th>Schedule ID </th>
+              <th>Airport ID</th>
+              <th>Action</th>
             </tr>
           </thead>
           <tbody>
-            <tr *ngFor="let sf of scheduleFlights">
-              <td>{{sf.scheduleFlightId}}</td>
+            <tr *ngFor="let sf of scheduleFlights ">
+             <td>{{sf.scheduleFlightId}}</td>
               <td>{{sf.availableSeats}}</td>
-              <td>{{sf.flight.flightId}} </td>
-              <td>{{sf.flight.carrierName}}</td>
-              <td>{{sf.flight.flightModel}}</td>
-              <td> {{sf.flight.seatCapacity}} </td>
-              <td> {{sf.flight.from}}</td>
-              <td>{{sf.flight.to}}</td>
-              <td>{{sf.schedule.scheduleId}}</td>
-              <td>{{sf.schedule.deptDateTime | date:'dd-MM-yyyy HH:mm:ss'  }}</td>
-              <td>{{sf.schedule.arrDateTime | date:'dd-MM-yyyy  HH:mm:ss'  }}</td>
-              <td>{{sf.schedule.airport.airportId}}</td>
-              <td>{{sf.schedule.airport.airportCode}}</td>
-              <td>{{sf.schedule.airport.airportLocation}}</td>
-              <td>{{sf.schedule.airport.airportName}}</td>
-              
+              <td>{{sf.flight.flightId }}</td>
+              <td>{{sf.schedule.scheduleId }} </td>  
+              <td>{{sf.schedule.airport.airportId }} </td>  
+            
               <td>
-
-                  <button type="button" (click)="remove(sf.scheduleFlightId)" class="cncBtn btn btn-danger">Delete</button> 
-              </td> 
+                <button (click)="remove(sf.scheduleFlightId)" class="btn btn-danger">Delete</button>
+                <button (click)="update(sf.scheduleFlightId)" class="btn btn-info" style="margin-left: 10px">update</button>
+                <button (click)="viewScheduleFlight(sf.scheduleFlightId)" class="btn btn-info" style="margin-left: 10px">Details</button>
+              </td>
+            </tr>
+          
           </tbody>
         </table>
       </div>
+   
     </div>
+    <app-footer></app-footer>

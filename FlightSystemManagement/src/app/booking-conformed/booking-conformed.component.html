@@ -1,0 +1,75 @@
+
+<app-navbar></app-navbar>
+<div class="container" style="margin: 5%;" >
+
+  <!-- Details Passenger Start -->
+
+  <h2 style="text-align: center; margin: 5%;">Details of Passenger</h2> 
+  <hr/>
+  <div *ngIf="passengers" style="margin-left: auto;margin-right: auto; text-align: center;">
+    <div>
+      <label><b>Passenger ID: </b></label> {{passengers.passengerId}}
+    </div>
+    <div>
+      <label><b>Passenger Name </b></label> {{passengers.passengerName}}
+    </div>
+    <div>
+      <label><b>Passenger Birthday </b></label> {{passengers.passengerBirthday}}
+    </div>
+    <div>
+      <label><b>Passenger CNI </b></label> {{passengers.passengerUIN}}
+    </div> 
+    <div>
+        <label><b>Luggage </b></label> {{passengers.luggage}}
+      </div> 
+  </div>
+
+  <!-- Details Passenger End -->
+    
+    <div  [hidden]="submitted" style="width: 500px; margin-left: auto;margin-right: auto;">  
+       <form (ngSubmit)="onSubmit()">
+
+
+  <label for="bookingDate" class="col-sm col-form-label">Booking Date:</label>
+  <input type="date"  class="form-control" placeholder="Booking Date" required #bookingDate="ngModel"  [class.is-invalid]="bookingDate.invalid && bookingDate.touched" class="form-control" id="bookingDate" required [(ngModel)]="booking.bookingDate  " name="bookingDate">
+  <small class="text-danger" [class.d-none]="bookingDate.valid || bookingDate.untouched"></small>
+        
+
+        
+                <label for="noOfPassenger" class="col-sm col-form-label">Numero Passenger:</label>
+                <input type="number" placeholder="Numero Passenger" class="form-control" required #noOfPassenger="ngModel" [class.is-invalid]="noOfPassenger.invalid && noOfPassenger.touched" class="form-control" id="noOfPassenger" required [(ngModel)]="booking.noOfPassenger" name="noOfPassenger">
+                <small class="text-danger" [class.d-none]="noOfPassenger.valid || noOfPassenger.untouched">Name is required</small>
+           
+        
+                <label>Flight ID: </label>
+                <select name="flight" [(ngModel)]="booking.flights" class="form-control">
+                    <option>Choose...</option>
+                    <option *ngFor="let f of flight" [ngValue]="f" > {{ f.flightId }} </option>
+                </select>
+                <br> 
+           
+                <label>Passenger Name: </label>
+                <select name="flight" [(ngModel)]="booking.passenger" class="form-control">
+                    <option>Choose...</option>
+                    <option *ngFor="let p of passenger" [ngValue]="p" > {{ p.passengerId }} </option>
+                </select>
+                <br> 
+           
+
+
+            <!-- <div class="col-md-8">
+              <div class="form-group">
+                 <label for="ticketCost" class="col-sm col-form-label">Tickt Cost</label>
+  <input type="number" placeholder="Tickt Costes" class="form-control" required #ticketCost="ngModel" [class.is-invalid]="ticketCost.invalid && ticketCost.touched" class="form-control" id="ticketCost" required [(ngModel)]="booking.ticketCost" name="ticketCost">
+  <small class="text-danger" [class.d-none]="ticketCost.valid || ticketCost.untouched">Name is required</small>
+              </div>
+            </div> -->
+  <div>
+    <button type="submit" class="btn btn-success " >Submit</button>
+  </div>
+</form>
+</div> 
+<!-- booking list -->
+
+
+<app-footer></app-footer>

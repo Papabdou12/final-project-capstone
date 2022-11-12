@@ -40,7 +40,7 @@ public class PassengerService {
         return passenger;
     }
 
-    public Passenger updateAirport(Passenger passenger){
+    public Passenger updatePassenger(Passenger passenger){
 
         return repo.save(passenger);
     }

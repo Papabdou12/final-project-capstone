@@ -1,0 +1,38 @@
+<app-navbar></app-navbar>
+
+<div class="panel panel-primary" style="margin: 10%;">
+  <div class="panel-heading">
+    <h2>List of Flight</h2>
+  </div>
+  <div style="margin-left: 80%;">
+  </div>
+  <div class="panel-body">
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Flight Number</th>
+          <th>Carrier Name</th>
+          <th>Flight Model</th>
+          <th>SeatCapicity</th>
+          <th>From</th>
+          <th>To</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let flight of flights | async">
+          <td> {{flight.flightId}} </td>
+          <td> {{flight.carrierName}}</td>
+          <td>{{flight.flightModel}}</td>
+          <td> {{flight.seatCapacity}} </td>
+          <td> {{flight.from}}</td>
+          <td>{{flight.to}}</td>
+          <td>
+              <button routerLink="/add-booking" class="btn btn-info" style="margin-left: 10px">Book now</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<app-footer></app-footer>

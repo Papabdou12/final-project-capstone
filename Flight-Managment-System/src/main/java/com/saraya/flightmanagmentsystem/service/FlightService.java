@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 
@@ -48,4 +49,10 @@ public class FlightService {
     public void  DeleteById(Long flightId){
         repo.deleteById(flightId);
     }
+
+    public List<Flight> search(String from, String to){
+        return repo.findFlightsByFromAndTo(from, to);
+    }
+
 }
+

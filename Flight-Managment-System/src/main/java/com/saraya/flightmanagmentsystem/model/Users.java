@@ -25,10 +25,6 @@ public class Users {
     private String password;
     private Integer userPhone;
     private String userEmail;
-//    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.ALL)
-//    @ToString.Exclude
-//    private Collection<Role> roles = new ArrayList<>();
-//
     @ManyToMany(fetch = FetchType.LAZY)
     @ToString.Exclude
     private Set<Role> roles = new HashSet<>();

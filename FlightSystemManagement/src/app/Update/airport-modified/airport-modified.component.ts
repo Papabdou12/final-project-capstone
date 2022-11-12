@@ -31,6 +31,7 @@ export class AirportModifiedComponent implements OnInit {
       .subscribe(data => console.log(data), error => console.log(error));
     this.airport = new Airport();
     this.gotoList();
+    window.location.reload;
   }
 
   onSubmit() {

@@ -1,6 +1,7 @@
 package com.saraya.flightmanagmentsystem.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.*;
 
 import javax.persistence.*;
@@ -23,8 +24,16 @@ public class Airport {
     private String airportCode;
     private String airportLocation;
     private String airportName;
-//    private String srcAirport;
-//    private String dstAirport;
+
+    @OneToOne
+    @JoinColumn(name = "sk_schedule_id")
+    @JsonIgnore
+    private Schedule schedule;
+
+//    @OneToOne(cascade = CascadeType.ALL)
+
+   // @JoinColumn(name = "sk_schedule_id")
+
 
 
 }

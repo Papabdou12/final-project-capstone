@@ -31,6 +31,15 @@ import { AddPassengerComponent } from './Create/add-passenger/add-passenger.comp
 import { PassengerListComponent } from './List/passenger-list/passenger-list.component';
 import { PassengerDetailsComponent } from './ViewDetails/passenger-details/passenger-details.component';
 import { PassengerModifiedComponent } from './Update/passenger-modified/passenger-modified.component';
+import { SearchFlightComponent } from './search-flight/search-flight.component';
+import { ScheduleComponent } from './List/schedule/schedule.component';
+import { ScheduleDetailsComponent } from './ViewDetails/schedule-details/schedule-details.component';
+import { ScheduleModifiedComponent } from './Update/schedule-modified/schedule-modified.component';
+import { ProfilesComponent } from './profiles/profiles.component';
+import { BookingConformedComponent } from './booking-conformed/booking-conformed.component';
+import { PassengerListUserComponent } from './List/passenger-list-user/passenger-list-user.component';
+import { AddScheduleComponent } from './Create/add-schedule/add-schedule.component';
+import { AboutUsComponent } from './about-us/about-us.component';
 
 
 
@@ -41,22 +50,27 @@ const routes: Routes = [
   {path: 'add-booking',component : AddBookingComponent},
   {path: 'add-passenger',component : AddPassengerComponent},
   {path: 'add-flight',component :AddFlightComponent },
-  {path: 'add-schedule-flight/:scheduleFlightId',component : AddScheduleFlightComponent},
+  {path: 'add-schedule-flight',component : AddScheduleFlightComponent},
+  {path: 'add-schedule',component : AddScheduleComponent},
   {path: 'add-user',component : AddUserComponent},
   {path: 'airport-list',component : AirportListComponent},
+  {path: 'schedule-list',component : ScheduleComponent},
   {path: 'booking-list',component : BookingListComponent},
   {path: 'flight-list',component : FlightListComponent},
   {path: 'passenger-list',component : PassengerListComponent},
+  {path: 'passenger-list-user',component : PassengerListUserComponent},
   {path: 'schedule-flight-list',component : ScheduleFlightListComponent},
   {path: 'user-list',component : UserListComponent},
   {path: 'airport-details/:airportId',component : AiportDetailsComponent},
   {path: 'passenger-details/:passengerId',component : PassengerDetailsComponent},
   {path: 'booking-details/:bookingId',component : BookingDetailsComponent},
   {path: 'flight-details/:flightId',component : FlightDetailsComponent},
+  {path: 'schedule-details/:scheduleId',component : ScheduleDetailsComponent},
   {path: 'schedule-flight-details/:scheduleFlightId',component : ScheduleFlightDetailsComponent},
   {path: 'user-details/:userId',component : UserDetailsComponent},
   {path: 'airport-modified/:airportId',component : AirportModifiedComponent},
   {path: 'booking-modified/:bookingId',component : BookingModifiedComponent},
+  {path: 'schedule-modified/:scheduleId',component : ScheduleModifiedComponent},
   {path: 'passenger-modified/:passengerId',component : PassengerModifiedComponent},
   {path: 'flight-modified/:flightId',component : FlightModifiedComponent},
   {path: 'schedule-flight-modified/:scheduleFlightId',component : ScheduleFlightModifiedComponent},
@@ -66,16 +80,10 @@ const routes: Routes = [
   {path: 'login',component : LoginComponent},
   {path: 'logout',component : LogoutComponent},
   {path: 'sign-up',component : SignUpComponent},
-
-//  {path: 'add-booking',component : AddBookingComponent},
-//  {path: 'booking-details',component : BookingDetailsComponent},
-//  {path: 'booking-list',component : BookingListComponent},
-//  {path: 'booking-modified',component : BookingModifiedComponent},
-//  {path: 'airport-list',component : AirportListComponent},
-//  {path: 'flight-list',component : FlightListComponent},
-//  {path: 'schedule-flight-list',component : ScheduleFlightListComponent},
-//  {path: 'welcome-user',component : WelcomUserComponent},
-//   { path: '', pathMatch: 'full', redirectTo: 'welcom-user' },
+  {path: 'search',component : SearchFlightComponent},
+  {path: 'booking-confirmed/:passengerId',component : BookingConformedComponent},
+  {path: 'profile',component : ProfilesComponent},
+    {path: 'about',component : AboutUsComponent},
 
 ];
 

@@ -19,19 +19,20 @@ export class ScheduleFlightListComponent implements OnInit {
   constructor(private router: Router, private service: ScheduleFlightService,
      private tokenStorageService: AuthGuardService) { }
 
-  ngOnInit(): void {
-    this.service.getAll().subscribe(
-      data => this.scheduleFlights =data );
+  ngOnInit() {
+   this.service.getAll()
+    .subscribe(data => this.scheduleFlights = data);
+   
       
   }
 
  
 
-  add(){
+  // add(){
 
-    this.router.navigate(['/add-schedule-flight']);
+  //   this.router.navigate(['/t']);
 
-  }
+  // }
 
   logout(): void {
     this.tokenStorageService.signOut();
@@ -53,12 +54,18 @@ export class ScheduleFlightListComponent implements OnInit {
     this.service.removeScheduleFlight(scheduleFlightId).subscribe({
       next:(res)=>{
         alert("ScheduleFlight is deleted successfully")
-            
+        window.location.reload();
       },
       error:(err)=>{
         alert("Error while deletingSchedule Flight")
+        
       }
     })
+  }
+  update(scheduleFlightId:number)
+  {
+    this.router.navigate(['/schedule-flight-modified',scheduleFlightId])
+    window.location.reload();
   }
   // search(){
 

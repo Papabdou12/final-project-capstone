@@ -9,16 +9,14 @@ import { PassengerService } from '../../services/passenger.service';
   styleUrls: ['./passenger-modified.component.css']
 })
 export class PassengerModifiedComponent implements OnInit {
-  passengerId:number;
-  passenger:Passenger;
+  passengerId: number;
+  passenger: Passenger;
   constructor(private route: ActivatedRoute,private router: Router,
     private passengerService: PassengerService) { }
 
   ngOnInit(){
     this.passenger = new Passenger();
-
     this.passengerId= this.route.snapshot.params['passengerId'];
-
     this.passengerService.viewPassenger(this.passengerId)
       .subscribe(data => {
         console.log(data)
@@ -30,6 +28,7 @@ export class PassengerModifiedComponent implements OnInit {
       .subscribe(data => console.log(data), error => console.log(error));
     this.passenger = new Passenger();
     this.gotoList();
+    window.location.reload;
   }
 
   onSubmit() {

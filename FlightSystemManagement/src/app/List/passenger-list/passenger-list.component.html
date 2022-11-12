@@ -30,13 +30,14 @@
       <div class="panel-heading">
         <h2>List of Passenger</h2>
       </div>
+
       <div class="panel-body">
         <table class="table table-striped">
           <thead>
             <tr>
               <th>PassengerID</th>
               <th>Passenger Name</th>
-              <th>Passenger Age</th>
+              <th>Birthday</th>
               <th>Passenger CNI</th>
               <th>Luggage</th>
               <th>Action</th>
@@ -46,7 +47,7 @@
             <tr *ngFor="let p of passenger | async">
               <td>{{p.passengerId}}</td>
               <td>{{p.passengerName}}</td>
-              <td>{{p.passengerAge}}</td>
+              <td>{{p.passengerBirthday}}</td>
               <td>{{p.passengerUIN}}</td>
               <td>{{p.luggage}}</td>
               <td><button (click)="removePassenger(p.passengerId)" class="btn btn-danger">Delete</button>
@@ -58,4 +59,4 @@
         </table>
       </div>
     </div>
-  <p>passenger-list works!</p>
+    <app-footer></app-footer>

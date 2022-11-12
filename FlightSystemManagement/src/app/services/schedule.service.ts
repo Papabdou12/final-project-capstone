@@ -20,7 +20,7 @@ export class ScheduleService {
   }
 
   modifySchedule(scheduleId: number,value:any): Observable<Object> {
-    return this.http.put(`${this.Url}/update/${scheduleId}`, value);
+    return this.http.put(`${this.Url}/updateSchedule/${scheduleId}`, value);
   }
 
   removeSchedule(scheduleId: number): Observable<any> {

@@ -29,6 +29,7 @@ export class FlightModifiedComponent implements OnInit {
       .subscribe(data => console.log(data), error => console.log(error));
     this.flight = new Flight();
     this.gotoList();
+    window.location.reload;
   }
 
   onSubmit() {

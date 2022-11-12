@@ -1,3 +1,40 @@
+ 
+
+
+  <!-- Topbar Start -->
+  <div class="container-fluid bg-light pt-3 d-none d-lg-block">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 text-center text-lg-left mb-2 mb-lg-0">
+                <div class="d-inline-flex align-items-center">
+                    <p><i class="fa fa-envelope mr-2"></i>Straveler@example.com</p>
+                    <p class="text-body px-3">|</p>
+                    <p><i class="fa fa-phone-alt mr-2"></i>+000 000 0000</p>
+                </div>
+            </div>
+            <div class="col-lg-6 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a class="text-primary px-3" href="">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a class="text-primary pl-3" href="">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Topbar End -->
  <!-- Navbar Start -->
  <div class="container-fluid position-relative nav-bar p-0">
     <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -9,14 +46,19 @@
             
             </button>
             <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <a href="/profile" routerLink="/profile" class="nav-link" routerLink="profile" *ngIf="isLoggedIn"> <span  class="text-dark" style="width: 25px;"> {{ username }} </span><i class='fas fa-user-check' style='font-size:25px;color:deepskyblue'></i> </a>
                 <div class="navbar-nav ml-auto py-0">
                     <a href="index.html" class="nav-item nav-link active">Home</a>
                     <a href="/user" class="nav-link" *ngIf="isLoggedIn" routerLink="/user">User</a>
                     <a href="/admin" class="nav-link" *ngIf="showAdminBoard" routerLink="/admin">Admin</a>
-                    <a href="about.html" class="nav-item nav-link" >About Us</a>
-                    <a routerLink="/login" class="nav-item nav-link">Login </a>
-                    <a  routerLink="/sign-up" class="nav-item nav-link" >Sign-Up </a>
-                    <a class="nav-item nav-link" (click)="logout()" >LogOut </a>
+                    <a href="/about" routerLink="/about" class="nav-item nav-link" >About Us</a>
+                    <a  routerLink="/login" class="nav-item nav-link" *ngIf="isLoggedIn"  hidden>Login </a>
+                    <a  routerLink="/login" class="nav-item nav-link" *ngIf="isLoggedIn == false">Login </a>
+                    <a routerLink="/login" class="nav-item nav-link" *ngIf="isLoggedIn" (click)="logout()" routerLink="/home">logout </a>
+                    <a  routerLink="/sign-up" class="nav-item nav-link" *ngIf="isLoggedIn"  hidden>Sign-Up </a>
+                    <a  routerLink="/sign-up" class="nav-item nav-link" *ngIf="isLoggedIn == false">Sign-Up </a>
+                    <!-- <a class="nav-item nav-link" *ngIf="isLoggedIn" (click)="logout()" routerLink="/home">LogOut </a> -->
+                    
     
                   
                 </div>

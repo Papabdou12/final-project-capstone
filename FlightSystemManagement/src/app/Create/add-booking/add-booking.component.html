@@ -1,67 +1,48 @@
 
 
 
-    <!-- Navbar Start -->
-    <div class="container-fluid position-relative nav-bar p-0">
-        <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
-            <nav class="navbar navbar-expand-lg bg-light navbar-light shadow-lg py-3 py-lg-0 pl-3 pl-lg-5">
-                <a href="" class="navbar-brand">
-                    <h1 class="m-0 text-primary">SARA<span class="text-dark">YA-TRAV</span>ELER</h1>
-                </a>
-                <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
-                
-                </button>
-                <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
-                    <div class="navbar-nav ml-auto py-0">
-                      <a href="index.html" class="nav-item nav-link active">Home</a>
-                      <a routerLink="/add-airport" class="nav-item nav-link">Add Airport</a>
-                      <a routerLink="/add-flight" class="nav-item nav-link">Add Flight</a>
-                      <a routerLink="/add-booking/:bookingId" class="nav-item nav-link">Add Booking</a>
-                      <a routerLink="/add-scheduleF-flight" class="nav-item nav-link">Add ScheduleFlight</a>
-                      
-                        <a href="about.html" class="nav-item nav-link" >About Us</a>
-                        <a href="" class="nav-item nav-link">Login </a>
-                        <a href="" class="nav-item nav-link" >Sign-Up </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-    </div >
-    <!-- Navbar End -->
+   <app-navbar></app-navbar>
+
+
+             
     <div class="container" style="margin: 5%;" >
-      
-  <div  [hidden]="submitted" style="width: 500px; margin-left: auto;margin-right: auto;"> 
-    <form (ngSubmit)="onSubmit()" class="mb-3 row">
+    
+      <div class="row col-md-6" [hidden]="submitted" style="margin-left: auto;margin-right: auto; text-align: center;">  
+           <form (ngSubmit)="onSubmit()">
 
-        <!-- <div class="form-group">
-            <label for="name" class="col-sm col-form-label">Booking Number:</label>
-            <input type="number"  class="form-control" placeholder="Booking Number" required #bookingId="ngModel"  [class.is-invalid]="bookingId.invalid && bookingId.touched" class="form-control" id="bookingId" required [(ngModel)]="booking.bookingId" name="bookingId">
-            <small class="text-danger" [class.d-none]="bookingId.valid || bookingId.untouched"></small>
-          </div> -->
-      <div class="form-group">
-        <label for="bookingDate" class="col-sm col-form-label">Booking Date:</label>
-        <input type="date"  class="form-control" placeholder="Booking Date" required #bookingDate="ngModel"  [class.is-invalid]="bookingDate.invalid && bookingDate.touched" class="form-control" id="bookingDate" required [(ngModel)]="booking.bookingDate  " name="bookingDate">
-        <small class="text-danger" [class.d-none]="bookingDate.valid || bookingDate.untouched"></small>
-      </div>
-  
-      <div class="form-group">
-        <label for="noOfPassenger" class="col-sm col-form-label">Numero Passenger:</label>
-        <input type="number" placeholder="Numero Passenger" class="form-control" required #noOfPassenger="ngModel" [class.is-invalid]="noOfPassenger.invalid && noOfPassenger.touched" class="form-control" id="noOfPassenger" required [(ngModel)]="booking.noOfPassenger" name="noOfPassenger">
-        <small class="text-danger" [class.d-none]="noOfPassenger.valid || noOfPassenger.untouched">Name is required</small>
-      </div>
-      <div class="form-group">
-        <label for="ticketCost" class="col-sm col-form-label">Tickt Costes</label>
-        <input type="number" placeholder="Tickt Costes" class="form-control" required #ticketCost="ngModel" [class.is-invalid]="ticketCost.invalid && ticketCost.touched" class="form-control" id="ticketCost" required [(ngModel)]="booking.ticketCost" name="ticketCost">
-        <small class="text-danger" [class.d-none]="ticketCost.valid || ticketCost.untouched">Name is required</small>
-      </div>
-
-   
-  
-  
-      <div>
-        <button type="submit" class="btn btn-success " >Submit</button>
-      </div>  
-    </form>
-   </div> 
+    <div class="form-group">
+      <label for="passengerName"class="col-sm col-form-label">Passenger Name</label>
+      <input type="text"  class="form-control"  placeholder="Enter your Full Name" required #passengerName="ngModel" [class.is-invalid]="passengerName.invalid && passengerName.touched" class="form-control" id="passengerName" required [(ngModel)]="passenger.passengerName" name="passengerName">
+      <small class="text-danger" [class.d-none]="passengerName.valid || passengerName.untouched">passengerName is required</small>
     </div>
-  
+
+    <div class="form-group">
+      <label for="passengerBirthday" class="col-sm col-form-label">Passenger Birthday</label>
+      <input type="date"  class="form-control"  placeholder="Enter Age" required #passengerBirthday="ngModel" [class.is-invalid]="passengerBirthday.invalid && passengerBirthday.touched" class="form-control" id="passengerBirthday" required [(ngModel)]="passenger.passengerBirthday" name="passengerBirthday">
+      <small class="text-danger" [class.d-none]="passengerBirthday.valid || passengerBirthday.untouched"> required</small>
+    </div>
+
+ 
+
+    <div class="form-group">
+      <label for="passengerUIN" class="col-sm col-form-label">Passenger CNI </label>
+      <input type="text"  class="form-control" placeholder="Enter your ID Card" required #passengerUIN="ngModel" [class.is-invalid]="passengerUIN.invalid && passengerUIN.touched" class="form-control" id="passengerUIN" required [(ngModel)]="passenger.passengerUIN" name="passengerUIN">
+      <small class="text-danger" [class.d-none]="passengerUIN.valid || passengerUIN.untouched">CNI  is between 1 to 9  required</small>
+    </div>
+ 
+    <div class="form-group">
+      <label for="name" class="col-sm col-form-label">Luggage </label>
+      <input type="text" class="form-control"  placeholder="Number of luggage" required #luggage="ngModel" [class.is-invalid]="luggage.invalid && luggage.touched" class="form-control" id="luggage" required [(ngModel)]="passenger.luggage" name="luggage">
+      <small class="text-danger" [class.d-none]="luggage.valid || luggage.untouched">Model is required</small>
+    </div>
+    <div>
+      <button  class="btn btn-success " >Submit</button>
+    </div>
+ 
+
+  </form>
+</div>
+</div>
+
+
+<app-footer></app-footer>

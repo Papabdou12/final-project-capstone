@@ -47,7 +47,7 @@ export class AddScheduleFlightComponent implements OnInit {
   }
 
   reloadData() {
-    this.scheduleFlightService. getAll();
+    this.scheduleFlightService.getAll();
   }
   newEmployee(): void {
     this.submitted = false;
@@ -79,7 +79,7 @@ export class AddScheduleFlightComponent implements OnInit {
 
   save()
   {
-    this.scheduleFlightService.addScheduleFlight(this.scheduleFlightId, this.scheduleFlight).subscribe({
+    this.scheduleFlightService.addScheduleFlight( this.scheduleFlight,this.scheduleFlightId).subscribe({
       next:(res)=>{
         alert("ScheduleFlight  successfully")
         this.gotoList();

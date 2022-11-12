@@ -1,6 +1,7 @@
 package com.saraya.flightmanagmentsystem.model;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.*;
 
@@ -26,6 +27,8 @@ public class Flight {
     private String from;
     private String to;
 
-
+    @OneToOne
+    @JsonIgnore
+    private Booking booking;
 
 }

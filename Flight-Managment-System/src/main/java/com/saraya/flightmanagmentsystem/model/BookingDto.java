@@ -10,10 +10,11 @@ import java.util.List;
 @Data
 @ToString
 public class BookingDto implements Serializable {
-    private  Long bookingId;
-    private  LocalDate bookingDate;
-
-    private  List<PassengerDto> PassengerList;
-    private  FlightDto flights;
+    private  String bookingDate;
+    private Long flightId;
+    private String passengerName;
+    private int passengerAge;
+    private int passengerUIN;
+    private Double luggage;
     private  int noOfPassenger;
 }

@@ -40,7 +40,17 @@ import { PassengerListComponent } from './List/passenger-list/passenger-list.com
 import { PassengerDetailsComponent } from './ViewDetails/passenger-details/passenger-details.component';
 import { PassengerModifiedComponent } from './Update/passenger-modified/passenger-modified.component';
 import { ProfilesComponent } from './profiles/profiles.component';
-
+import { SearchFlightComponent } from './search-flight/search-flight.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { ScheduleDetailsComponent } from './ViewDetails/schedule-details/schedule-details.component';
+import { ScheduleModifiedComponent } from './Update/schedule-modified/schedule-modified.component';
+import { FooterComponent } from './footer/footer.component';
+import { AddScheduleComponent } from './Create/add-schedule/add-schedule.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { BookingConformedComponent } from './booking-conformed/booking-conformed.component';
+import { AddBookingAdminComponent } from './Create/add-booking-admin/add-booking-admin.component';
+import { PassengerListUserComponent } from './List/passenger-list-user/passenger-list-user.component';
+import { AboutUsComponent } from './about-us/about-us.component';  
 
 @NgModule({
   declarations: [
@@ -77,7 +87,17 @@ import { ProfilesComponent } from './profiles/profiles.component';
     PassengerListComponent,
     PassengerDetailsComponent,
     PassengerModifiedComponent,
-    ProfilesComponent
+    ProfilesComponent,
+    SearchFlightComponent,
+    ScheduleDetailsComponent,
+    ScheduleModifiedComponent,
+    FooterComponent,
+    AddScheduleComponent,
+    FilterPipe,
+    BookingConformedComponent,
+    AddBookingAdminComponent,
+    PassengerListUserComponent,
+    AboutUsComponent
   ],
   imports: [
     BrowserModule,
@@ -86,6 +106,8 @@ import { ProfilesComponent } from './profiles/profiles.component';
     BrowserAnimationsModule,
     CommonModule,
     FormsModule,
+    ReactiveFormsModule,
+    
 
   ],
   providers: [HttpClientModule,HttpParams],

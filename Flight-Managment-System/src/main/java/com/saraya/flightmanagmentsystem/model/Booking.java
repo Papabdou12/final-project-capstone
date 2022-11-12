@@ -26,16 +26,14 @@ public class Booking {
     private  Long bookingId;
     private LocalDate bookingDate;
     private int noOfPassenger;
-//    @OneToOne ( cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//    @ToString.Exclude
-//    @JoinColumn(name = "flight_booking_id")
-//    @JsonIgnore
-//    private Flight flights;
-//    @ManyToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-//    @ToString.Exclude
-//    @JsonIgnore
-//    @JoinColumn(name = "passenger_booking_id")
-//    private List<Passenger> PassengerList = new ArrayList<>();
+    @OneToOne (fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @JoinColumn(name = "flight_booking_id")
+    private Flight flights;
+    @OneToOne (fetch = FetchType.LAZY)
+    @ToString.Exclude
+    @JoinColumn(name = "passenger_booking_id")
+    private Passenger passenger;
 
 
     private Double ticketCost;

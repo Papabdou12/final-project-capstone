@@ -32,8 +32,10 @@ public class Schedule {
 
 
     private LocalDateTime arrDateTime;
-    @ManyToOne(targetEntity = Airport.class,cascade = CascadeType.ALL,fetch = FetchType.LAZY)
-    private Airport Airport;
+
+    @OneToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "sc_airportId")
+    private Airport airport;
 
 
 

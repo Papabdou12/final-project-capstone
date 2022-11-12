@@ -6,6 +6,7 @@ import com.saraya.flightmanagmentsystem.service.FlightService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
 import java.util.Optional;
 
 @CrossOrigin("http://localhost:4200")
@@ -46,4 +47,10 @@ public class FlightController {
     public void  DeleteById(@PathVariable Long flightId){
         service.DeleteById(flightId);
     }
+
+    @GetMapping("/search/{from}/{to}/flight")
+    public List<Flight> search( @PathVariable String from, @PathVariable String to){
+        return service.search(from, to);
+    }
+
 }

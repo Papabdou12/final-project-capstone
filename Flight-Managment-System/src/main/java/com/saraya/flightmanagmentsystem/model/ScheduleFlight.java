@@ -19,19 +19,19 @@ public class ScheduleFlight {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name ="schedule_flight_id", nullable = false)
     private Long scheduleFlightId;
     private int availableSeats;
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
     @ToString.Exclude
     @NotNull
-     @JoinColumn(name = "fk_flight_id")
-    @JsonIgnore
+//    @JoinColumn(name = "fk_flight_id")
     private Flight flight;
     @OneToOne(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
 
     @ToString.Exclude
     @NotNull
-    @JoinColumn(name = "sk_schedule_id")
+  // @JoinColumn(name = "sk_schedule_id")
     private Schedule schedule;
 
 

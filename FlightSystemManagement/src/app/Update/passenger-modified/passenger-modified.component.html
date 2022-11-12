@@ -1,10 +1,10 @@
 
-<h3 style="text-align: center;">Add a Airport</h3>
+<h3 style="text-align: center;">Update a Passenger</h3>
 <div  style="width: 400px; margin-left: auto;margin-right: auto;">
  <form (ngSubmit)="onSubmit()">
     <div class="form-group">
         <label for="name">Passenger Id</label>
-        <input [disabled]="true" type="text" class="form-control" id="passengerId" required [(ngModel)]="passenger.passengerId" name="passengerId">
+        <input [disabled]="true"  class="form-control" id="passengerId" required [(ngModel)]="passenger.passengerId" name="passengerId">
       </div>
     <div class="form-group">
         <label for="name">Passenger Name</label>
@@ -12,8 +12,8 @@
       </div>
   
       <div class="form-group">
-        <label for="name">>Passenger Age</label>
-        <input type="text" class="form-control" id="passengerAge" required [(ngModel)]="passenger.passengerAge" name="passengerAge">
+        <label for="name">Passenger Birthday</label>
+        <input type="date" class="form-control" id="passengerBirthday" required [(ngModel)]="passenger.passengerBirthday" name="passengerBirthday">
       </div>
   
       <div class="form-group">

@@ -35,12 +35,12 @@ public class PassengerController {
             return service.create(passenger);
         }
 @PutMapping("/update")
-        public Passenger updateAirport(@RequestBody Passenger passenger){
-            return service.updateAirport(passenger);
+        public Passenger update(@RequestBody Passenger passenger){
+            return service.updatePassenger(passenger);
         }
 
         @DeleteMapping("/delete/{passengerId}")
-        public void  deleteById(Long passengerId){
+        public void  deleteById(@PathVariable Long passengerId){
             service.DeleteById(passengerId);
         }
 

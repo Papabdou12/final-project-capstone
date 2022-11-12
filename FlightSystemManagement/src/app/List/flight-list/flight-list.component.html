@@ -10,16 +10,16 @@
                 </button>
                 <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
                   <div class="navbar-nav ml-auto py-0">
-                      <a href="index.html" class="nav-item nav-link active">Home</a>
-                      <a routerLink="/airport-list" class="nav-item nav-link"> Airport</a>
-                      <a routerLink="/booking-list" class="nav-item nav-link"> Booking</a>
-                      <a routerLink="/flight-list" class="nav-item nav-link"> Flight</a>
-                      <a routerLink="/schedule-list" class="nav-item nav-link"> Schedule</a>
-                      <a routerLink="/Passenger-list" class="nav-item nav-link"> Passenger</a>
-                      <a routerLink="/schedule-flight-list" class="nav-item nav-link">ScheduleFlight</a>
-                      <a href="about.html" class="nav-item nav-link" >About Us</a>
-                      <a class="nav-item nav-link" (click)="logout()" routerLink="/home">LogOut </a>
-                  </div>
+                    <a href="index.html" class="nav-item nav-link active">Home</a>
+                    <a routerLink="/airport-list" class="nav-item nav-link"> Airport</a>
+                    <a routerLink="/booking-list" class="nav-item nav-link"> Booking</a>
+                    <a routerLink="/flight-list" class="nav-item nav-link"> Flight</a>
+                    <a routerLink="/schedule-list" class="nav-item nav-link"> Schedule</a>
+                    <a routerLink="/passenger-list" class="nav-item nav-link"> Passenger</a>
+                    <a routerLink="/schedule-flight-list" class="nav-item nav-link">ScheduleFlight</a>
+                    <a href="about.html" class="nav-item nav-link" >About Us</a>
+                    <a class="nav-item nav-link" (click)="logout()" >LogOut </a>
+                </div>
               </div>
             </nav>
         </div>
@@ -29,6 +29,9 @@
   <div class="panel panel-primary" style="margin: 10%;">
       <div class="panel-heading">
         <h2>List of Flight</h2>
+      </div>
+      <div style="margin-left: 80%;">
+        <button type="button" class="btn btn-lg btn-outline-info" routerLink="/add-flight">Ad Flight</button>
       </div>
       <div class="panel-body">
         <table class="table table-striped">
@@ -61,4 +64,4 @@
         </table>
       </div>
     </div>
-  
+    <app-footer></app-footer>

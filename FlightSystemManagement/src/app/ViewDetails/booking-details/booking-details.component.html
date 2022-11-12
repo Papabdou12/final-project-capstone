@@ -15,8 +15,6 @@
                       <a  class="nav-item nav-link"> Booking</a>
                       <a  class="nav-item nav-link"> Flight</a>
                       <a class="nav-item nav-link">Schedule Flight</a>
-                      <a href="about.html" class="nav-item nav-link" >About Us</a>
-                      <a routerLink="/logout"class="nav-item nav-link">LogOut </a>
                   </div>
               </div>
           </nav>
@@ -24,27 +22,71 @@
   </div >
   <!-- Navbar End -->
 
-  <h2 style="text-align: center; margin: 5%;">Details of Booking</h2> 
-<hr/>
-<div *ngIf="booking" style="margin-left: auto;margin-right: auto; text-align: center;">
-  <div>
-    <label><b>Booking ID:</b></label> {{booking.bookingId}}
-  </div>
-  <div>
-    <label><b>Booking Date: </b></label> {{booking.bookingDate}}
-  </div>
-  <div>
-    <label><b>No of Passengers: </b></label> {{booking.noOfPassenger | number}}
-    <div>
-      <label><b>Tickets Cost: </b></label> {{booking.ticketCost | number}}
-    </div>
-  </div>
+<div class="h-screen bg-blue-300 flex justify-center items-center">
+    <div class="container mx-auto">
+        <div class="max-w-sm mx-auto md:max-w-lg">
+            <div class="w-full">
+                <ul class="px-0">
+            
+                    <div class="border bg-white list-none rounded-sm px-3 py-3 cursor-pointer ">
+                        
+   <h2 style="text-align: center; margin: 5%;">Details of Booking</h2> 
+   <hr/>
+   
+   <form >
+   <div *ngIf="booking" style="margin-left: auto;margin-right: auto; text-align: center;">
+     <div>
+       <label><b>Booking ID:</b></label> {{booking.bookingId}}
+     </div>
+     <div>
+       <label><b>Booking Date: </b></label> {{booking.bookingDate}}
+     </div>
+     <div>
+       <label><b>No of Passengers: </b></label> {{booking.noOfPassenger | number}}
+       <!-- <div>
+         <label><b>Tickets Cost: </b></label> {{booking.ticketCost | number}}
+       </div> -->
+       <div>
+        <label><b>Flight Model: </b></label> {{booking.flights.flightModel}}
+      </div>
+      <div>
+        <label><b>Carrier Name: </b></label> {{booking.flights.carrierName}}
+      </div>
+      <div>
+        <label><b>Seat Capacity: </b></label> {{booking.flights.seatCapacity}}
+      </div>  
+      <div>
+        <label><b>From </b></label> {{booking.flights.from}}
+      </div> 
+      <div>
+        <label><b>To: </b></label> {{booking.flights.to}}
+      </div> 
+
+         <div>
+           <label><b>Passenger Name :</b></label>{{booking.passenger.passengerName}}
+         </div>
+         <div>
+           <label><b>Passenger Birthday: </b></label> {{booking.passenger.passengerBirthday}}
+         </div>
+         <div>
+           <label><b>Passenger CNI: </b></label> {{booking.passenger.passengerUIN}}
+         </div> 
+         <div>
+             <label><b>Luggage: </b></label> {{booking.passenger.luggage}}
+           </div> 
+       
+     </div>
+   </div>
+   </form>
+   <br>
+   <br>
+   <button (click)="list()" class="btn btn-primary">Back to Booking List</button><br> 
 </div>
-
-<br>
-<br>
-<button (click)="list()" class="btn btn-primary">Back to Booking List</button><br>
-
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
     <!-- Service Start -->
     <div class="container-fluid py-5">

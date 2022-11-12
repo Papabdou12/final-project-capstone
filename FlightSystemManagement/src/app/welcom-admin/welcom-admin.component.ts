@@ -15,14 +15,14 @@ export class WelcomAdminComponent implements OnInit {
   constructor(private userService: UserService,private tokenStorageService: AuthGuardService,private router:Router) { }
 
   ngOnInit(): void {
-    this.userService.getAdminBoard().subscribe(
-      data => {
-        this.content = data;
-      },
-      err => {
-        this.content = JSON.parse(err.error).message;
-      }
-    );
+    // this.userService.getAdminBoard().subscribe(
+    //   data => {
+    //     this.content = data;
+    //   },
+    //   err => {
+    //     this.content = JSON.parse(err.error).message;
+    //   }
+    // );
   }
 
 

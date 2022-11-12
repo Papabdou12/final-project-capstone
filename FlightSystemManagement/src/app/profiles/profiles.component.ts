@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthGuardService } from '../services/auth-guard.service';
 
 @Component({
   selector: 'app-profiles',
@@ -6,10 +7,10 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./profiles.component.css']
 })
 export class ProfilesComponent implements OnInit {
-
-  constructor() { }
+  currentUser: any;
+  constructor(private token: AuthGuardService) { }
 
   ngOnInit(): void {
+    this.currentUser = this.token.getUser();
   }
-
 }

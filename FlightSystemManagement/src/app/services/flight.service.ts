@@ -30,6 +30,17 @@ export class FlightService {
   viewAllFlight(): Observable<any> {
     return this.http.get(`${this.Url}/viewAll`);
   }
+  
+   SearchAllFlight(from:any, to:any): Observable<any> {
+      return this.http.get(`${this.Url}/search/${from}/${to}/flight`);
+   }
+
+  //  getFlight(from:any, to:any)  
+  //  {  
+  //    let url = this.Url + "/search/${from}/${to}/flight";  
+  //    return  this.http.post(url , from,to);  
+  //  } 
+  
 //   deleteflight (id : number){
 //     return this.http.delete<any>(`${this.url}/delete/${flightId}`);
 //   }

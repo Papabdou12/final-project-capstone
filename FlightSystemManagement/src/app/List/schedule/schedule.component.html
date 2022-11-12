@@ -1,3 +1,4 @@
+
     <!-- Navbar Start -->
     <div class="container-fluid position-relative nav-bar p-0">
         <div class="container-lg position-relative p-0 px-lg-3" style="z-index: 9;">
@@ -15,13 +16,58 @@
                       <a routerLink="/booking-list" class="nav-item nav-link"> Booking</a>
                       <a routerLink="/flight-list" class="nav-item nav-link"> Flight</a>
                       <a routerLink="/schedule-list" class="nav-item nav-link"> Schedule</a>
-                      <a routerLink="/Passenger-list" class="nav-item nav-link"> Passenger</a>
+                      <a routerLink="/passenger-list" class="nav-item nav-link"> Passenger</a>
                       <a routerLink="/schedule-flight-list" class="nav-item nav-link">ScheduleFlight</a>
                       <a href="about.html" class="nav-item nav-link" >About Us</a>
-                      <a class="nav-item nav-link" (click)="logout()" >LogOut </a>
+                      <a class="nav-item nav-link" (click)="logout()" routerLink="/home">LogOut </a>
                   </div>
               </div>
             </nav>
         </div>
     </div >
     <!-- Navbar End -->
+  
+  <div class="panel panel-primary" style="margin: 10%;">
+      <div class="panel-heading">
+        <h2>List of Schedule</h2>
+      </div>
+      <div style="margin-left: 80%;">
+        <button type="button" class="btn btn-lg btn-outline-info" routerLink="/add-schedule">Ad Schedule</button>
+      </div>
+      <div class="panel-body">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+
+               <th>Schedule Id</th>
+                <th>Departure Time</th>
+                <th>Arrival Time</th>
+                  <th>ID Airport</th>
+               <th>Code Airport</th>
+                 <th>Airport Location</th>
+                 <th>Airport Name</th> 
+                  <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let sf of schedule">
+    
+              <td>{{sf.scheduleId}}</td>
+              <td>{{sf.deptDateTime | date:'dd-MM-yyyy HH:mm:ss'  }}</td>
+              <td>{{sf.arrDateTime | date:'dd-MM-yyyy  HH:mm:ss'  }}</td>
+              <td>{{sf.airport.airportId}}</td>
+              <td>{{sf.airport.airportCode}}</td>
+              <td>{{sf.airport.airportLocation}}</td>
+              <td>{{sf.airport.airportName}}</td>
+
+              <td><button (click)="removeSchedule(sf.scheduleId)" class="btn btn-danger">Delete</button>
+                <button (click)="modifySchedule(sf.scheduleId)"  class="btn btn-info" style="margin-left: 10px">update</button>
+                  <button (click)="viewScheduleDetails(sf.scheduleId)"  class="btn btn-info" style="margin-left: 10px">Details</button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <app-footer></app-footer>

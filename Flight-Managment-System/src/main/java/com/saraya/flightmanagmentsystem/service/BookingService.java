@@ -44,32 +44,21 @@ public class BookingService {
         return  repo.findById(bookingId);
     }
 
-//    public Booking create(Booking booking,Long bookingId ) {
-//        BookingDto bookingDto = mapper.map(booking, BookingDto.class);
-//
-////        UsersDto users = new UsersDto();
-////        bookingDto.setUser(users);
-//        Optional<Passenger> passenger = passengerRepository.findById(bookingId);
-////        booking.getPassengerList().add(passenger.get());
-//        booking.setPassengerList(passenger.stream().toList());
-//        Optional<Flight> flights = flightRepository.findById(bookingId);
-//        booking.setFlights(flights.get());
-//        booking = repo.save(booking);
-//        return booking;
-//    }
 
-    public Booking create(Booking booking ) {
+    public Booking create(Booking booking,Long bookingId ) {
         BookingDto bookingDto = mapper.map(booking, BookingDto.class);
 
-
-        return repo.save(booking);
+//        UsersDto users = new UsersDto();
+//        bookingDto.setUser(users);
+        Optional<Passenger> passenger = passengerRepository.findById(bookingId);
+//        booking.getPassengerList().add(passenger.get());
+        booking.setPassenger(passenger.get());
+        Optional<Flight> flights = flightRepository.findById(bookingId);
+        booking.setFlights(flights.get());
+        booking = repo.save(booking);
+        return booking;
     }
-//    public void addRoleToUser(Long bookingId, Long passengerId) {
-//
-//        Optional<Booking> booking = repo.findById(bookingId);
-//        Optional<Passenger> passenger = passengerRepository.findById(passengerId);
-//        booking.get().getPassengerList().add(passenger.get());
-//    }
+
 
 public Booking updateBooking( Long bookingId, Booking booking) {
     return repo.findById(bookingId).map(booking1 -> {

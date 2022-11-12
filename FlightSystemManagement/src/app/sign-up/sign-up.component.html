@@ -165,13 +165,13 @@
         
                             
         <div class="button">
-          <button class="btn btn-primary btn-block">SIGN UP</button>
+          <button class="btn btn-primary btn-block" >SIGN UP</button>
       </div>
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
           Signup failed!<br />{{ errorMessage }}
         </div>
   
-      <div class="alert alert-success" *ngIf="isSuccessful">
+      <div class="alert alert-success" *ngIf="isSuccessful" routerLink="/login">
         Your registration is successful!
       </div>
                         </form>

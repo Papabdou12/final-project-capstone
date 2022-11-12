@@ -1,10 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { Booking } from '../../model/booking';
-import { BookingService } from '../../services/booking.service';
-import { Router } from '@angular/router';
-import { Flight } from '../../model/flight';
+import { Router, ActivatedRoute } from '@angular/router';
 import { Passenger } from '../../model/passenger';
-import { FlightService } from '../../services/flight.service';
+
+import { PassengerService } from '../../services/passenger.service';
 
 @Component({
   selector: 'app-add-booking',
@@ -12,48 +10,49 @@ import { FlightService } from '../../services/flight.service';
   styleUrls: ['./add-booking.component.css']
 })
 export class AddBookingComponent implements OnInit {
-  // PassengerList : Passenger[];
-  // flights: Flight [];
-  //  booking: Booking = {bookingId:null,bookingDate: null,noOfPassenger:null,ticketCost:null,flights:null};
-   booking : Booking = new Booking();
+  passenger: Passenger =new Passenger();
   submitted=false;
-  constructor(private bookingService: BookingService,private router: Router) { }
+  passengerId:number;
+  constructor(private passengerService: PassengerService,private router: Router, private route:ActivatedRoute) { }
 
   ngOnInit(){
     this.reloadData();
+        
   }
   reloadData() {
-    this.bookingService. getBookingsList();
+    this.passengerService.viewAllPassenger();
   }
   newEmployee(): void {
     this.submitted = false;
-    this.booking = new Booking();
+    this.passenger = new Passenger();
   }
-
 
   save()
   {
-    this.bookingService.createBooking(this.booking).subscribe({
+    this.passengerService.addPassenger(this.passenger).subscribe({
       next:(res)=>{
-        alert("Booking  successfully")
-        this.booking = new Booking();
-        this.gotoList();
-        this.reloadData();     
+        alert("Passenge  is added successfully")
+        this.passenger = new Passenger();
+        this.gotoList();   
+
+   
+
       },
       error:(err)=>{
-        alert("Error while Adding the Airport")
-        this.reloadData();  
+        alert("Error while Adding the Flight")
       }
     })
+
+    
   }
+
   onSubmit() {
     this.submitted = true;
     this.save();
-  
   }
   gotoList() {
-    this.router.navigate(['/booking-list']);
-
+    this.router.navigate(['/passenger-list-user']);
+   
   }
-
 }
+

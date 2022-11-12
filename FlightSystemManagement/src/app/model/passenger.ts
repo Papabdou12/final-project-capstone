@@ -2,7 +2,7 @@ export class Passenger {
 
     passengerId: number;
     passengerName: string;
-    passengerAge!: number;
+    passengerBirthday!: number;
     passengerUIN: number;
     luggage:number;
     

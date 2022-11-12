@@ -8,6 +8,7 @@ import com.saraya.flightmanagmentsystem.repository.ScheduledFlightRepository;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.transaction.Transactional;
 import java.util.List;
@@ -61,7 +62,7 @@ public class ScheduleFlightService  {
         repo.deleteById(scheduleFlightId);
     }
 
-    public ScheduleFlight create(ScheduleFlight scheduleFlight, Long scheduleFlightId) {
+    public ScheduleFlight create( ScheduleFlight scheduleFlight, Long scheduleFlightId) {
 
         Optional<Flight> flight = flightRepository.findById(scheduleFlightId);
         scheduleFlight.setFlight(flight.get());
